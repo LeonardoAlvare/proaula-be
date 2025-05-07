@@ -29,7 +29,7 @@ export class ProposalService {
     if (existingProposal) {
       throw new ConflictException('Propuesta existente');
     }
-    
+
     const existingProject = await this.projectModel.exists({ _id: projectId });
 
     if (!existingProject) {
