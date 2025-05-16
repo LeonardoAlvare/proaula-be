@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+actor Usuario
+actor Freelancer
+actor Administrador
+
+Usuario --> (Registrarse)
+Usuario --> (Iniciar sesión)
+Usuario --> (Actualizar contraseña)
+Usuario --> (Ver perfil)
+Usuario --> (Crear proyecto)
+Usuario --> (Ver proyectos)
+Usuario --> (Editar proyecto)
+Usuario --> (Eliminar proyecto)
+Usuario --> (Ver proyectos del proyecto)
+
+Freelancer --> (Registrarse)
+Freelancer --> (Iniciar sesión)
+Freelancer --> (Actualizar contraseña)
+Freelancer --> (Ver perfil)
+Freelancer --> (Crear proyecto)
+Freelancer --> (Ver proyectos)
+Freelancer --> (Enviar propuesta)
+Freelancer --> (Ver propuestas propias)
+
+Administrador --> (Ver todos los usuarios)
+Administrador --> (Ver todos las propuestas)
+Administrador --> (Ver todos los proyectos)
+' Administrador --> (Eliminar usuario)
+
+@enduml

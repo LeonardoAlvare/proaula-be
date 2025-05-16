@@ -1,0 +1,18 @@
+@startuml
+' Diagrama de despliegue - Vista de Implementación ProAula
+
+node "Cliente (Postman/Frontend)" as Cliente
+node "Servidor Node.js (NestJS)" as Servidor
+node "Base de Datos MongoDB" as MongoDB
+
+Cliente --> Servidor : Solicitudes HTTP (REST API)
+Servidor --> MongoDB : Consultas y operaciones
+
+note right of Servidor
+  Puerto: 3001
+end note
+note right of MongoDB
+  localhost:27017/proaula
+end note
+
+@enduml

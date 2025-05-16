@@ -24,6 +24,12 @@ export class Proposal {
 
   @Prop({ required: true })
   userEmail: string;
+
+  @Prop({ required: true })
+  salary: number;
+
+  @Prop({ required: true })
+  days: number;
 }
 
 export const ProposalSchema = SchemaFactory.createForClass(Proposal);

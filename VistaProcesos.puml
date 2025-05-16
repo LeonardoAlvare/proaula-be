@@ -1,0 +1,43 @@
+@startuml
+' Diagrama de secuencia: Registro, login y creación de proyecto
+actor Usuario
+participant "AuthController" as AC
+participant "AuthService" as AS
+participant "UserService" as US
+participant "User" as U
+participant "ProjectController" as PC
+participant "ProjectService" as PS
+participant "Project" as P
+
+== Registro ==
+Usuario -> AC: POST /auth/register (datos usuario)
+AC -> AS: register(createUserDto)
+AS -> US: create(createUserDto)
+US -> U: Guardar usuario
+U --> US: Usuario creado
+US --> AS: Usuario creado
+AS --> AC: Usuario creado
+AC --> Usuario: Respuesta registro exitoso
+
+== Login ==
+Usuario -> AC: POST /auth/login (credenciales)
+AC -> AS: login(LoginAuthDto)
+AS -> US: findOne({ email })
+US -> U: Buscar usuario
+U --> US: Usuario encontrado
+US --> AS: Usuario
+AS --> AC: Usuario autenticado
+AC --> Usuario: Respuesta login exitoso
+
+== Crear Proyecto ==
+Usuario -> PC: POST /project (datos proyecto)
+PC -> PS: create(createProjectDto)
+PS -> US: findOne({ _id: userId })
+US -> U: Buscar usuario
+U --> US: Usuario encontrado
+US --> PS: Usuario encontrado
+PS -> P: Guardar proyecto
+P --> PS: Proyecto creado
+PS --> PC: Proyecto creado
+PC --> Usuario: Respuesta proyecto creado
+@enduml

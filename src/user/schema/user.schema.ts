@@ -1,4 +1,4 @@
-import { HydratedDocument, Types } from 'mongoose';
+import { HydratedDocument } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type userDocument = HydratedDocument<User>;
@@ -22,6 +22,15 @@ export class User {
 
   @Prop({ default: false })
   isFreelancer: boolean;
+
+  @Prop({ required: false })
+  idioma: string[];
+
+  @Prop({ required: false })
+  experiencia: string;
+
+  @Prop({ required: false })
+  categoria: string[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

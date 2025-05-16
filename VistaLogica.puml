@@ -1,0 +1,75 @@
+@startuml
+' Diagrama de clases/componentes - Vista Lógica ProAula
+
+package "Módulo Auth" {
+  class AuthController
+  class AuthService
+  class LoginAuthDto
+  class UpdatePasswordAuthDto
+}
+
+package "Módulo Usuario" {
+  class UserController
+  class UserService
+  class UserModule
+  class User
+  class CreateUserDto
+  class UpdateUserDto
+}
+
+package "Módulo Proyecto" {
+  class ProjectController
+  class ProjectService
+  class ProjectModule
+  class Project
+  class CreateProjectDto
+  class UpdateProjectDto
+}
+
+package "Módulo Propuesta" {
+  class ProposalController
+  class ProposalService
+  class ProposalModule
+  class Proposal
+  class CreateProposalDto
+  class UpdateProposalDto
+}
+
+' Relaciones principales
+AuthController --> AuthService
+AuthService --> UserService
+AuthController --> LoginAuthDto
+AuthController --> UpdatePasswordAuthDto
+
+UserController --> UserService
+UserService --> User
+UserService --> CreateUserDto
+UserService --> UpdateUserDto
+UserModule --> UserService
+UserModule --> UserController
+UserModule --> User
+
+ProjectController --> ProjectService
+ProjectService --> Project
+ProjectService --> CreateProjectDto
+ProjectService --> UpdateProjectDto
+ProjectService --> UserService
+ProjectModule --> ProjectService
+ProjectModule --> ProjectController
+ProjectModule --> Project
+
+ProposalController --> ProposalService
+ProposalService --> Proposal
+ProposalService --> CreateProposalDto
+ProposalService --> UpdateProposalDto
+ProposalService --> Project
+ProposalModule --> ProposalService
+ProposalModule --> ProposalController
+ProposalModule --> Proposal
+
+' Relaciones entre módulos
+ProposalService --> ProjectService
+ProposalService --> UserService
+ProjectService --> UserService
+
+@enduml
