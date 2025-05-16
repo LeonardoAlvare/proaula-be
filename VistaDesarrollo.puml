@@ -1,0 +1,63 @@
+@startuml
+' Diagrama de paquetes - Vista de Desarrollo ProAula
+
+package "src" {
+  package "auth" {
+    class AuthController
+    class AuthService
+    class AuthModule
+    package "dto" {
+      class LoginAuthDto
+      class UpdatePasswordAuthDto
+    }
+    package "schema" {
+      class Auth
+    }
+  }
+  package "user" {
+    class UserController
+    class UserService
+    class UserModule
+    package "dto" {
+      class CreateUserDto
+      class UpdateUserDto
+    }
+    package "schema" {
+      class User
+    }
+  }
+  package "project" {
+    class ProjectController
+    class ProjectService
+    class ProjectModule
+    package "dto" {
+      class CreateProjectDto
+      class UpdateProjectDto
+    }
+    package "schema" {
+      class Project
+    }
+    package "types" {
+      class StatusProject
+    }
+  }
+  package "proposal" {
+    class ProposalController
+    class ProposalService
+    class ProposalModule
+    package "dto" {
+      class CreateProposalDto
+      class UpdateProposalDto
+    }
+    package "schema" {
+      class Proposal
+    }
+    package "types" {
+      class StatusProposal
+    }
+  }
+  class AppModule
+  class Main
+}
+
+@enduml
