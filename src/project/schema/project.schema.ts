@@ -28,6 +28,9 @@ export class Project {
   @Prop({ required: true })
   salary: number;
 
+  @Prop({ required: true })
+  freelancers: number;
+
   @Prop({ required: false, default: StatusProject.Active })
   status: StatusProject;
 }
