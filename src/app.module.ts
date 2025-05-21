@@ -7,7 +7,8 @@ import { ProposalModule } from './proposal/proposal.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/proaula'),
+    // MongooseModule.forRoot('mongodb://localhost/proaula'),
+    MongooseModule.forRoot(process.env.DB_URL),
     UserModule,
     AuthModule,
     ProjectModule,
