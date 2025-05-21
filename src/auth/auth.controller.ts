@@ -20,7 +20,10 @@ export class AuthController {
   }
 
   @Put('update-password/:id')
-  async updatePassword(@Param('id') id: string, @Body() updatePassword: UpdatePasswordAuthDto) {
+  async updatePassword(
+    @Param('id') id: string,
+    @Body() updatePassword: UpdatePasswordAuthDto,
+  ) {
     return this.authService.updatePassword(id, updatePassword);
   }
 }

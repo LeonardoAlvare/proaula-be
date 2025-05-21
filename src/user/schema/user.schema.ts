@@ -31,6 +31,9 @@ export class User {
 
   @Prop({ required: false })
   categoria: string[];
+
+  @Prop({ required: false })
+  plan: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

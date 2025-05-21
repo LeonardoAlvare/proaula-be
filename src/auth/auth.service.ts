@@ -26,15 +26,17 @@ export class AuthService {
 
   async updatePassword(userId: string, updatePassword: UpdatePasswordAuthDto) {
     const { email, newPassword, oldPassword } = updatePassword;
-    
-    const user = await this.userService.findOne({  email, _id: userId });
+
+    const user = await this.userService.findOne({ email, _id: userId });
 
     if (oldPassword != user.password) {
       throw new BadRequestException('Contraseña incorrecta');
     }
 
     if (oldPassword == newPassword) {
-      throw new BadRequestException('La nueva contraseña no puede ser igual a la anterior');
+      throw new BadRequestException(
+        'La nueva contraseña no puede ser igual a la anterior',
+      );
     }
 
     await this.userService.update(user.id, { password: newPassword });
